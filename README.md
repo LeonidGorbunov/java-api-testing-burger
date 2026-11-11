@@ -1,3 +1,5 @@
+[![API Tests & Allure Report](https://github.com/LeonidGorbunov/java-api-testing-burger/actions/workflows/tests.yml/badge.svg)](https://github.com/LeonidGorbunov/java-api-testing-burger/actions/workflows/tests.yml)
+[![Allure Report](https://img.shields.io/badge/Allure%20Report-Live-brightgreen)](https://leonidgorbunov.github.io/java-api-testing-burger/)
 # Java API Testing Stellar Burgers Project
 
 **Контекст и цели проекта**: проектирование отказоустойчивой и высокопроизводительной архитектуры фреймворка автоматизации API-тестов (REST Client Architecture) для полного покрытия бизнес-логики бэкенда космической бургерной и контрактной валидации данных.
@@ -31,3 +33,8 @@
 #### 3. Локализованный дефект бизнес-логики бэкенда (Defect: HTTP 500 Internal Server Error)
 В ходе выполнения негативного сценария `shouldReturn400BadRequestWhenOrderCreatedWithInvalidIdFormat` (создание заказа с невалидным форматом хэша) был зафиксирован критический дефект бэкенда: сервер падает в `500 Internal Server Error` вместо возврата легитимного кода валидации `400 Bad Request`. Тест задокументирован как упавший.
 ![Backend Bug HTTP 500](allure-bug-invalid-hash.png)
+
+### 📊 Живой отчёт Allure и запуск в CI/CD (GitHub Actions)
+
+* **Интерактивный отчёт последнего прогона:** [Открыть Allure Report на GitHub Pages](https://leonidgorbunov.github.io/java-api-testing-burger/)
+* **Автоматический прогон в облаке:** в репозиторий интегрирован пайплайн [GitHub Actions](.github/workflows/tests.yml), который разворачивает окружение на базе JDK 11, выполняет `mvn clean test`, генерирует HTML-отчёт через `allure-maven` и публикует его в ветку `gh-pages`.
